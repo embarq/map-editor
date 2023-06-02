@@ -25,7 +25,7 @@ let mapTempPin = null
 const getGeoJsonLayerStyle = (isShown = false) => ({
   color: '#3b82f6',
   weight: 2,
-  opacity: isShown ? 0.6 : 0.2,
+  opacity: isShown ? 0.6 : 0,
 })
 
 const loadGeoJsonData = (geoJsonLayer) => {
@@ -55,7 +55,7 @@ const handleMarkerClick = (e) => {
 const initMap = () => {
   appMap = L.map('map-host').setView(MAP_CENTER, MAP_ZOOM)
   geoJsonLayer = L.geoJSON(null, {
-    style: getGeoJsonLayerStyle()
+    style: getGeoJsonLayerStyle(false)
   }).addTo(appMap)
 
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -64,7 +64,7 @@ const initMap = () => {
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(appMap)
 
-  // loadGeoJsonData(geoJsonLayer);
+  loadGeoJsonData(geoJsonLayer);
 
   appMap.on('click', (e) => {
     emit('mapClick', e)
@@ -115,6 +115,9 @@ defineExpose({
       appMap.setView(marker.getLatLng(), 14)
     }
   },
+  updateNetworkSettings: ({ showNetwork }) => {
+    geoJsonLayer.setStyle(getGeoJsonLayerStyle(showNetwork))
+  },
   updatePoints: (points) => {
     // add or update new markers
     {
@@ -157,12 +160,6 @@ defineExpose({
 
 onMounted(() => {
   initMap()
-})
-
-watchEffect(() => {
-  if (geoJsonLoaded.value) {
-    appMap.fitBounds(geoJsonLayer.getBounds())
-  }
 })
 </script>
 <template>

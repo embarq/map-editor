@@ -133,6 +133,11 @@ const download = () => {
   downloadAnchorNode.remove()
 }
 
+const handleMapNetworkSettingsUpdate = (settings) => {
+  console.log('[handleMapNetworkSettingsUpdate]', settings)
+  mapComponent.value.updateNetworkSettings(settings)
+}
+
 onMounted(() => {
   watch(points, (_points) => {
     if (mapComponent.value != null) {
@@ -217,8 +222,8 @@ onMounted(() => {
         @add="handleAddPointFromMap"
         @highlight="handleZoomInToMarker(activePointMarker)" />
     </Popover>
-    <Popover class="fixed z-10 w-full max-w-sm px-4 -translate-x-1/2 bottom-32 left-1/3" v-if="false">
-      <MapNetworkSettingsToolbar />
+    <Popover class="fixed z-10 w-full max-w-sm px-4 -translate-x-1/2 bottom-32 left-1/3">
+      <MapNetworkSettingsToolbar @update="handleMapNetworkSettingsUpdate" />
     </Popover>
   </div>
 </template>
