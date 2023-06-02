@@ -145,23 +145,25 @@ onMounted(() => {
     }
   })
 
-  points.value = [
-    {
-      point: [50.064191736659104, 30.875135434664998],
-      title: 'Test A',
-      id: nanoid(),
-    },
-    {
-      title: 'Test B',
-      id: nanoid(),
-      point: [48.531157010976735, 32.391959396598025],
-    },
-    {
-      title: 'Test C',
-      id: nanoid(),
-      point: [50.17689812200107, 32.743686692118686],
-    },
-  ]
+  if (location.search.includes('debug')) {
+    points.value = [
+      {
+        point: [50.064191736659104, 30.875135434664998],
+        title: 'Test A',
+        id: nanoid(),
+      },
+      {
+        title: 'Test B',
+        id: nanoid(),
+        point: [48.531157010976735, 32.391959396598025],
+      },
+      {
+        title: 'Test C',
+        id: nanoid(),
+        point: [50.17689812200107, 32.743686692118686],
+      },
+    ]
+  }
   
 })
 
