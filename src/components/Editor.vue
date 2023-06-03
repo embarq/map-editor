@@ -180,17 +180,17 @@ onMounted(() => {
       </div>
       <section class="relative z-10 max-h-screen col-span-4 p-5 pt-0 overflow-auto border-l-2 border-gray-200 bg-zinc-100 dark:bg-zinc-800 dark:border-zinc-700 xl:col-span-3">
         <header class="sticky top-0 z-10 flex items-center justify-between py-5 border-b bg-inherit border-inherit">
-          <h1 class="text-3xl font-bold">Map Editor</h1>
+          <h1 class="text-2xl font-bold">Map Editor</h1>
           <div class="flex items-center space-x-2">
             <button
               type="button"
-              class="px-4 py-2 text-sm font-bold text-center uppercase bg-indigo-700 rounded-lg text-slate-50"
+              class="text-center uppercase transition-colors bg-indigo-700 rounded-lg btn text-slate-50 hover:bg-slate-50 hover:text-indigo-700"
               @click="handleAddPoint">
               add point
             </button>
             <button
               type="button"
-              class="px-2 py-2 text-sm rounded-lg text-slate-50 hover:bg-slate-200 dark:hover:text-zinc-900"
+              class="h-full px-2 py-2 text-sm transition-colors rounded-lg text-slate-50 hover:bg-slate-200 dark:hover:text-zinc-900"
               @click="download">
               <i class="gg-calendar-due"></i>
             </button>

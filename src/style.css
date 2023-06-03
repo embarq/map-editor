@@ -5,8 +5,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn {
+    padding: theme("padding.2") theme("padding.4");
+    font-size: theme("fontSize.sm");
+    font-weight: theme("fontWeight.bold");
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color: theme("colors.white");
+  }
+
+  .formkit-input {
+    --fk-color-input: theme("colors.white");
   }
 }

@@ -22,19 +22,19 @@ defineProps({
       </h2>
       <div class="flex items-center space-x-1">
         <button
-          class="p-2 text-xs font-bold uppercase rounded hover:bg-slate-200 dark:hover:text-zinc-900"
+          class="uppercase transition-colors rounded btn hover:bg-slate-200 dark:hover:text-zinc-900"
           type="button"
           @click="isEdit ? emit('edit') : emit('add')">
           {{ isEdit ? 'Edit' : 'Create' }}
         </button>
         <button
-          class="p-2 font-bold uppercase rounded hover:bg-slate-200 dark:hover:text-zinc-900"
+          class="p-4 font-bold uppercase transition-colors rounded hover:bg-slate-200 dark:hover:text-zinc-900"
           type="button"
           @click="emit('highlight')">
           <i class="scale-75 gg-assign"></i>
         </button>
         <button
-          class="p-2 rounded hover:bg-slate-200 dark:hover:text-zinc-900"
+          class="p-2 transition-colors rounded hover:bg-slate-200 dark:hover:text-zinc-900"
           type="button"
           @click="emit('close')">
           <i class="gg-close"></i>

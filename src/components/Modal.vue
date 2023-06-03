@@ -54,14 +54,14 @@ function closeModal() {
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
-              class="w-full max-w-md p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+              class="w-full max-w-md p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl dark:bg-zinc-800"
             >
               <DialogTitle
                 as="h3"
-                class="flex items-center justify-between text-lg font-medium leading-6 text-gray-900"
+                class="flex items-center justify-between text-lg font-medium leading-6 text-gray-900 dark:text-slate-50"
               >
                 {{ title }}
-                <button class="p-2 rounded hover:bg-slate-200" type="button" @click="emit('close')">
+                <button class="p-2 transition-colors rounded hover:bg-slate-200 dark:hover:bg-zinc-700" type="button" @click="emit('close')">
                   <i class="gg-close"></i>
                 </button>
               </DialogTitle>
